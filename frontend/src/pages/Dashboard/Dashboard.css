@@ -1,0 +1,131 @@
+/* .dashboard-container {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+.dashboard-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.no-restaurant {
+  text-align: center;
+}
+
+.create-button {
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  background-color: #ff6347;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.restaurant-info {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  border-radius: 1rem;
+  background: #fff;
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.restaurant-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.restaurant-description {
+  margin-bottom: 1rem;
+  color: #555;
+}
+
+.restaurant-image {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 0.75rem;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+.restaurant-actions {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.small-button {
+  padding: 0.4rem 0.75rem;
+  font-size: 0.875rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.2s ease;
+}
+
+.update-button {
+  background-color: #4caf50;
+  color: white;
+}
+
+.delete-button {
+  background-color: #f44336;
+  color: white;
+}
+
+.logout-button:focus {
+  outline: none;
+}
+
+.logout-button:hover {
+  background-color: #e04b3f;
+  transform: scale(1.05);
+}
+
+.logout-button {
+  background-color: #ff6347;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-top: 10px;
+  width: 100%;
+  max-width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+} */
+
+/* AdvancedDashboard.css */
+.date-range-filter {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.date-range-filter label {
+  font-weight: 500;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.95rem;
+}
+
+.date-range-filter input[type="date"] {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-top: 4px;
+  font-size: 0.95rem;
+}

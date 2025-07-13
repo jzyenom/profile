@@ -1,0 +1,35 @@
+.search-container {
+  max-width: 600px;
+  margin: 2rem auto;
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+}
+
+.search-icon {
+  color: #888;
+  margin-left: 0.5rem;
+}
+
+.search-results {
+  margin-top: 1rem;
+}
+
+.restaurant-card {
+  background: #f9f9f9;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  border-radius: 8px;
+}

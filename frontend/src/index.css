@@ -1,0 +1,34 @@
+/* @import "tailwindcss"; */
+
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+
+/* Apply global font only if needed */
+body {
+  font-family: "Outfit", sans-serif;
+  @apply min-h-screen scroll-smooth;
+  padding-top: 70px;
+}
+
+/* Remove universal resets that fight Tailwind */
+a {
+  @apply no-underline text-inherit;
+}
+
+.app {
+  @apply w-4/5 mx-auto;
+}
+
+/* Keep your keyframes if you're using them */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

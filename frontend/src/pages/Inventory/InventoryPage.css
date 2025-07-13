@@ -1,0 +1,168 @@
+/* InventoryPage.css */
+
+.inventory-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.inventory-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.inventory-form,
+.usage-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 2rem;
+  justify-content: center;
+}
+
+.inventory-form input,
+.usage-form input {
+  padding: 8px 12px;
+  font-size: 1rem;
+  border: 1.5px solid #ccc;
+  border-radius: 4px;
+  min-width: 150px;
+  transition: border-color 0.3s ease;
+}
+
+.inventory-form input:focus,
+.usage-form input:focus {
+  border-color: #FF6347; /* tomato red */
+  outline: none;
+}
+
+.add-btn,
+.use-btn,
+.cancel-btn {
+  cursor: pointer;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.add-btn {
+  background-color: #FF6347;
+  color: #fff;
+}
+
+.add-btn:hover {
+  background-color: #e5533d;
+}
+
+.use-btn {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.use-btn:hover {
+  background-color: #3e8e41;
+}
+
+.cancel-btn {
+  background-color: #ccc;
+  color: #333;
+}
+
+.cancel-btn:hover {
+  background-color: #999;
+  color: #fff;
+}
+
+.inventory-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.inventory-table th,
+.inventory-table td {
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.inventory-table th {
+  background-color: #FF6347;
+  color: #fff;
+  font-weight: 700;
+}
+
+.status.in-stock {
+  color: #2e7d32; /* green */
+  font-weight: 600;
+}
+
+.status.out-of-stock {
+  color: #d32f2f; /* red */
+  font-weight: 700;
+}
+
+.edit-btn,
+.delete-btn,
+.track-btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+  margin-right: 6px;
+}
+
+.edit-btn {
+  background-color: #2196F3;
+  color: white;
+}
+
+.edit-btn:hover {
+  background-color: #1769aa;
+}
+
+.delete-btn {
+  background-color: #f44336;
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #aa2e25;
+}
+
+.track-btn {
+  background-color: #ff9800;
+  color: white;
+}
+
+.track-btn:hover {
+  background-color: #cc7a00;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  .inventory-form,
+  .usage-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .inventory-table th,
+  .inventory-table td {
+    font-size: 0.9rem;
+    padding: 8px 6px;
+  }
+}

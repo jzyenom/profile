@@ -1,0 +1,49 @@
+.inventory-container {
+  max-width: 800px;
+  margin: 80px auto 40px; /* Centers horizontally and adds good top margin */
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.inventory-title {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  color: #333;
+  font-weight: 600;
+}
+
+.custom-spinner {
+  margin-left: 10px;
+  width: 30px;
+  height: 30px;
+  border: 3px solid #ff6347; /* Tomato red */
+  border-top: 3px solid transparent;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Optional: mobile responsiveness */
+@media (max-width: 600px) {
+  .inventory-container {
+    margin: 60px 10px;
+    padding: 15px;
+  }
+
+  .inventory-title {
+    font-size: 1.5rem;
+  }
+}

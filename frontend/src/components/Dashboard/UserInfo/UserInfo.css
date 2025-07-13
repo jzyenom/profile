@@ -1,0 +1,50 @@
+.user-info-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 4rem; /* Enough margin so navbar doesn’t overlap */
+  margin-bottom: 3rem;
+  /* background-color: #f9f9f9; */
+}
+
+.title {
+  color: #ff6347;
+}
+
+.user-info-card {
+  background-color: #fff;
+  border: 1px solid #e4e4e4;
+  border-left: 5px solid #ff6347;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  max-width: 600px;
+  width: 100%;
+}
+
+.user-info-card {
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  color: #333;
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 0.5rem;
+}
+
+.user-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.user-info-grid div {
+  font-size: 14px;
+  color: #444;
+  background: #fafafa;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+}
+
+.user-info-grid strong {
+  color: #ff6347;
+  margin-right: 6px;
+}

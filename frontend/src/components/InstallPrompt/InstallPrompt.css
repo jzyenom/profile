@@ -1,0 +1,140 @@
+/* .install-banner {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  max-width: 320px;
+  margin: auto;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+  animation: slideUp 0.4s ease-out;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.install-text h3 {
+  margin: 0;
+  font-size: 16px;
+  color: #222;
+}
+
+.install-text p {
+  margin: 4px 0 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.install-button {
+  background-color: #e53935;
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.install-button:hover {
+  background-color: #d32f2f;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+} */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+.install-banner {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  max-width: 320px;
+  margin: auto;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+  animation: slideDown 0.4s ease-out;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.install-text h3 {
+  margin: 0;
+  font-size: 16px;
+  color: #222;
+}
+
+.install-text p {
+  margin: 4px 0 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.install-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.install-button {
+  background-color: #e53935;
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.install-button:hover {
+  background-color: #d32f2f;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  color: #333;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+}
+
+.close-button:hover {
+  background-color: #f1f1f1;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

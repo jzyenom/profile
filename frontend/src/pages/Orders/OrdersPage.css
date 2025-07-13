@@ -1,0 +1,191 @@
+/* Base styles */
+.orders-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center; /* Center items horizontally on mobile */
+}
+
+.orders-page {
+  margin-top: 20px;
+}
+
+/* Individual card */
+.order-card {
+  background: white;
+  padding: 1rem;
+  border-radius: 10px;
+  overflow-x: auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  font-size: 12px;
+  width: 100%;
+  max-width: 500px; /* Prevent too wide on big screens */
+}
+
+/* Tables */
+.order-table,
+.items-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.order-table td,
+.order-table th,
+.items-table td,
+.items-table th {
+  padding: 4px 6px;
+  word-wrap: break-word;
+}
+
+.order-table td.label-cell {
+  font-weight: bold;
+  color: #333;
+  width: 30%;
+}
+
+.order-table td.value-cell {
+  width: 60%;
+}
+
+.items-table th {
+  text-align: left;
+  background-color: #eee;
+}
+
+/* Status badges */
+.status-badge {
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 10px;
+  color: white;
+  text-transform: capitalize;
+}
+
+.status-pending {
+  background-color: orange;
+}
+
+.status-preparing {
+  background-color: dodgerblue;
+}
+
+.status-delivered {
+  background-color: green;
+}
+
+.status-cancelled {
+  background-color: crimson;
+}
+
+/* Status selector */
+.status-select {
+  font-size: 12px;
+  padding: 4px;
+  margin-top: 4px;
+  width: 100%;
+}
+
+.status-label {
+  display: block;
+  font-size: 12px;
+  margin-bottom: 4px;
+  font-weight: bold;
+}
+
+/* Items section title */
+.items-title {
+  font-size: 12px;
+  margin-top: 8px;
+  margin-bottom: 4px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Scrollbar styling */
+.order-card::-webkit-scrollbar {
+  height: 5px;
+}
+
+.order-card::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 5px;
+}
+
+/* Responsive layout: 2 cards per row, centered */
+@media (min-width: 768px) {
+  .orders-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center; /* Center rows of cards */
+  }
+
+  .order-card {
+    flex: 1 1 calc(50% - 1rem);
+    max-width: 400px;
+    margin: 0.5rem;
+  }
+}
+
+.orders-controls {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.search-box,
+.filter-box {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid #ddd;
+  padding: 0.4rem 0.7rem;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.search-box input,
+.filter-box select {
+  border: none;
+  outline: none;
+  font-size: 0.9rem;
+}
+
+.date-heading {
+  margin: 2rem 0 1rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #333;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.3rem;
+}
+
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+
+.status-filter {
+  padding: 0.4rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.search-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.search-input {
+  padding: 0.4rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 240px;
+}

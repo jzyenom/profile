@@ -1,0 +1,204 @@
+/* .restaurant-list-container {
+  padding: 1rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.restaurant-list-container h2 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.restaurant-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.restaurant-item {
+  display: flex;
+  flex-direction: column;
+  width: 220px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+}
+
+.restaurant-item:hover {
+  transform: scale(1.02);
+}
+
+.restaurant-image {
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+}
+
+.restaurant-info {
+  padding: 0.5rem;
+  font-size: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.restaurant-info h3 {
+  font-size: 1rem;
+  margin: 0.25rem 0;
+}
+
+.restaurant-info p {
+  margin: 0;
+  line-height: 1.2;
+  color: #444;
+}
+
+.view-button {
+  margin-top: 0.5rem;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.8rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #ff6347;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.view-button:hover {
+  background-color: #e45035;
+} */
+/* 
+
+
+
+ */
+/* Container for the entire restaurant list section */
+.restaurant-list-container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.restaurant-list-container h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  color: #333;
+}
+
+.restaurant-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.restaurant-item {
+  text-decoration: none;
+  color: inherit;
+  width: 300px;
+  position: relative;
+  transition: transform 0.2s ease, opacity 0.3s ease;
+  border-radius: 10px;
+}
+
+.restaurant-item:hover {
+  transform: scale(1.02);
+}
+
+/* This is the key CSS for the "closed" state */
+.restaurant-item.closed {
+  opacity: 0.5; /* Makes it grayish */
+  /* pointer-events: auto; allows clicking on closed restaurants */
+}
+
+.restaurant-card {
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.restaurant-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+.restaurant-info {
+  padding: 1rem;
+  flex-grow: 1;
+}
+
+.restaurant-info h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.4rem;
+  color: #333;
+}
+
+.restaurant-info p {
+  margin-bottom: 0.3rem;
+  font-size: 0.95rem;
+  color: #666;
+}
+
+/* This is the key CSS for the watermark */
+.closed-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-10deg);
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  opacity: 0; /* Initially hidden */
+  pointer-events: none; /* Prevents it from blocking clicks on the card when hidden */
+  transition: opacity 0.3s ease-in-out;
+  z-index: 2;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* This rule makes the watermark visible ONLY on hover over a .closed restaurant item */
+.restaurant-item.closed .closed-watermark {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .restaurant-list {
+    gap: 1rem;
+  }
+  .restaurant-item {
+    width: calc(50% - 1rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .restaurant-list-container {
+    padding: 1rem;
+  }
+  .restaurant-list {
+    flex-direction: column;
+    align-items: center;
+  }
+  .restaurant-item {
+    width: 90%;
+  }
+  .restaurant-list-container h2 {
+    font-size: 2rem;
+  }
+}

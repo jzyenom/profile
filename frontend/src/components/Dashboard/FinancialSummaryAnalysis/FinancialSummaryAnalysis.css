@@ -1,0 +1,29 @@
+.financial-summary-analysis {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  margin-top: 2rem;
+  color: #333;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.financial-summary-analysis h2 {
+  color: #FF6347;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.financial-summary-analysis pre {
+  background-color: #f9f9f9;
+  padding: 1rem;
+  border-radius: 10px;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.financial-summary-analysis .error {
+  color: red;
+  font-weight: bold;
+}

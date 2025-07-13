@@ -1,0 +1,85 @@
+.users-page {
+  padding: 2rem;
+  max-width: 800px;
+  margin: auto;
+}
+
+.users-title {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.filter-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  justify-content: center;
+}
+
+.users-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.user-card {
+  background-color: #fff;
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.role-badge {
+  padding: 0.2rem 0.5rem;
+  border-radius: 8px;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.role-badge.guest {
+  background-color: #e0f7fa;
+  color: #00796b;
+}
+
+.role-badge.restaurantOwner {
+  background-color: #fff3e0;
+  color: #ef6c00;
+}
+
+.role-badge.admin {
+  background-color: #e8eaf6;
+  color: #3949ab;
+}
+
+.user-actions {
+  margin-top: 10px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.user-actions select,
+.user-actions button {
+  padding: 6px 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.user-actions button {
+  background-color: #4f46e5;
+  color: white;
+  cursor: pointer;
+}
+
+.user-actions button:hover {
+  background-color: #4338ca;
+}

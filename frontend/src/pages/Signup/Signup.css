@@ -1,0 +1,90 @@
+.signup-container {
+  max-width: 28rem;
+  margin: auto;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  color: #1f1f1f;
+}
+
+.signup-form {
+  padding: 2rem;
+}
+
+.signup-title {
+  font-size: 1.875rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  background: linear-gradient(to right, tomato, #ff7f7f);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.signup-error {
+  color: #ef4444;
+  font-weight: 600;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+}
+
+.signup-button {
+  margin-top: 1.25rem;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: linear-gradient(to right, tomato, #ff7f7f);
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 14px rgba(255, 99, 71, 0.3);
+  transition: background 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+}
+
+.signup-button:hover {
+  background: linear-gradient(to right, #ff6347, tomato);
+}
+
+.signup-button:focus {
+  outline: 2px solid tomato;
+  outline-offset: 2px;
+}
+
+.loader-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  animation: spin 1s linear infinite;
+  margin: 0 auto;
+}
+
+.signup-footer {
+  padding: 1rem 2rem;
+  background: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  border-top: 1px solid #f3f4f6;
+}
+
+.signup-footer p {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.login-link {
+  color: tomato;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.login-link:hover {
+  text-decoration: underline;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
