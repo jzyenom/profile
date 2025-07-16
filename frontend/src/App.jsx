@@ -32,6 +32,7 @@ import EventsPage from "./pages/EventsPage/EventsPage";
 import ContactPage from "./pages/ContactPage/ContactPage";
 import ProjectsPage from "./pages/ProjectsPage/ProjectsPage";
 import HistoryPage from "./pages/HistoryPage/HistoryPage";
+import AchievementsPage from "./pages/AchievementsPage/AchievementsPage";
 
 // Protected routes that require authentication. Redirect unauthenticated users to login page
 const ProtectedRoute = ({ children }) => {
@@ -89,6 +90,8 @@ function App() {
               <Route path="/contact" index element={<ContactPage />} />
               <Route path="/projects" index element={<ProjectsPage />} />
               <Route path="/history" element={<HistoryPage />} />
+              <Route path="/achievements" element={<AchievementsPage />} />
+
 
               <Route path="/menu" index element={<Homepage />} />
 

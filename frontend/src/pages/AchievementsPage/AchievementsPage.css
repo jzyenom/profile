@@ -1,0 +1,66 @@
+.achievements-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem 1rem;
+}
+
+.achievements-hero {
+  background-color: #198754;
+  color: white;
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+.achievements-title {
+  font-size: 2.8rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.achievements-subtitle {
+  font-size: 1.25rem;
+}
+
+.achievements-section {
+  padding: 3rem 1rem;
+}
+
+.bg-light {
+  background-color: #f8f9fa;
+}
+
+.achievements-heading {
+  font-size: 2rem;
+  color: #198754;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.achievements-text {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  text-align: justify;
+  max-width: 850px;
+  margin: auto;
+  margin-bottom: 1.5rem;
+}
+
+.achievements-list {
+  list-style-type: disc;
+  max-width: 850px;
+  margin: auto;
+  padding-left: 1.5rem;
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .achievements-title {
+    font-size: 2rem;
+  }
+
+  .achievements-text,
+  .achievements-list {
+    font-size: 0.95rem;
+  }
+}

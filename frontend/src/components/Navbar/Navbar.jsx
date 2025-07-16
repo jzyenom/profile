@@ -86,16 +86,16 @@ const Navbar = () => {
               </li>
 
               <li className="gov-dropdown">
-                <span>Achievements</span>
+                <Link to="/achievements" className="span">Achievements</Link>
                 <ul className="gov-dropdown-menu">
                   <li>
-                    <Link to="#">Media</Link>
+                    <Link to="/achievements#media">Media</Link>
                   </li>
                   <li>
-                    <Link to="#">Past Governors</Link>
+                    <Link to="/achievements#past-governors">Past Governors</Link>
                   </li>
                   <li>
-                    <Link to="#">Past House of Reps</Link>
+                    <Link to="/achievements#house-of-reps">Past House of Reps</Link>
                   </li>
                 </ul>
               </li>

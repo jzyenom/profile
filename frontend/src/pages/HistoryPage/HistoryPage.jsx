@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import "./HistoryPage.css";
+import { useLocation } from "react-router-dom";
 
 const HistoryPage = () => {
-
+  const location = useLocation();
 
   useEffect(() => {
     if (location.hash) {
