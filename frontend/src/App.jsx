@@ -28,6 +28,7 @@ import UpdateMenu from "./pages/UpdateMenu/UpdateMenu";
 import LandingPage from "./pages/LandingPage/LandingPage";
 import PortfolioPage from "./pages/PortfolioPage/PortfolioPage";
 import NewsPage from "./pages/NewsPage/NewsPage";
+import EventsPage from "./pages/EventsPage/EventsPage";
 
 // Protected routes that require authentication. Redirect unauthenticated users to login page
 const ProtectedRoute = ({ children }) => {
@@ -81,6 +82,8 @@ function App() {
               <Route path="/" index element={<LandingPage />} />
               <Route path="/portfolio" index element={<PortfolioPage />} />
               <Route path="/news" index element={<NewsPage />} />
+              <Route path="/events" index element={<EventsPage />} />
+              <Route path="/contact-us" index element={<EventsPage />} />
 
               <Route path="/menu" index element={<Homepage />} />
 
