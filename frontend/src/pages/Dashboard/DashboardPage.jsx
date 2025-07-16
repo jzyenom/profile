@@ -9,16 +9,45 @@ import {
   CheckCircle,
   Loader2,
   Lightbulb,
+  LogOut,
 } from "lucide-react";
 
 import "./Dashboard.css";
 
+// API base URL
+const API_URL =
+  import.meta.env.MODE === "development"
+    ? "http://localhost:5000/api"
+    : "/api";
+
 const Dashboard = () => {
+  const handleLogout = async () => {
+    try {
+      const res = await fetch(`${API_URL}/auth/logout`, {
+        method: "POST",
+        credentials: "include", // to send cookies/session
+      });
+
+      if (res.ok) {
+        // Optional: redirect to login page
+        window.location.href = "/login";
+      } else {
+        console.error("Logout failed");
+      }
+    } catch (error) {
+      console.error("Logout error:", error.message);
+    }
+  };
+
   return (
     <main className="dashboard-wrapper">
       <header className="dashboard-header">
         <h1>Admin Dashboard</h1>
         <p>Welcome, Admin. Manage content, users, and system activity.</p>
+        <button onClick={handleLogout} className="logout-button">
+          <LogOut size={16} style={{ marginRight: "6px" }} />
+          Logout
+        </button>
       </header>
 
       {/* Metrics */}

@@ -5,6 +5,7 @@ import cookieParser from "cookie-parser";
 import path from "path";
 import colors from "colors";
 import authRoutes from "./routes/auth.route.js";
+import newsAndEvents from './routes/newsAndEvents.router.js'
 
 // Connect to MongoDB
 import { connectDB } from "./db/connectDB.js";
@@ -29,6 +30,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Routes
 app.use("/api/auth", authRoutes);
+app.use("/api/newsAndEvents", newsAndEvents);
 
 // Serve static files from the public folder
 if (process.env.NODE_ENV === "production") {
