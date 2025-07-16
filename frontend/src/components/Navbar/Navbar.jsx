@@ -24,51 +24,87 @@ const Navbar = () => {
           <div className={`gov-collapse ${isNavOpen ? "open" : ""}`}>
             <ul className="gov-menu">
               <li>
-                <a href="#portfolio">Portfolio</a>
+                <Link to="/portfolio">Portfolio</Link>
               </li>
 
               <li className="gov-dropdown">
                 <span>Projects</span>
                 <ul className="gov-dropdown-menu">
-                  <li><a href="#">Completed</a></li>
-                  <li><a href="#">Ongoing</a></li>
-                  <li><a href="#">Proposed</a></li>
+                  <li>
+                    <Link to="#">Completed</Link>
+                  </li>
+                  <li>
+                    <Link to="#">Ongoing</Link>
+                  </li>
+                  <li>
+                    <Link to="#">Proposed</Link>
+                  </li>
                 </ul>
               </li>
 
               <li className="gov-dropdown">
                 <span>Government</span>
                 <ul className="gov-dropdown-menu">
-                  <li><a href="#">Executives</a></li>
-                  <li><a href="#">Judiciary</a></li>
-                  <li><a href="#">Legislature</a></li>
-                  <li><a href="#">MDA’s</a></li>
-                  <li><a href="#">Local Governments</a></li>
+                  <li>
+                    <Link to="#">Executives</Link>
+                  </li>
+                  <li>
+                    <Link to="#">Judiciary</Link>
+                  </li>
+                  <li>
+                    <Link to="#">Legislature</Link>
+                  </li>
+                  <li>
+                    <Link to="#">MDA’s</Link>
+                  </li>
+                  <li>
+                    <Link to="#">Local Governments</Link>
+                  </li>
                 </ul>
               </li>
 
               <li className="gov-dropdown">
                 <span>History</span>
                 <ul className="gov-dropdown-menu">
-                  <li><a href="#">The Land</a></li>
-                  <li><a href="#">People of Sokoto</a></li>
-                  <li><a href="#">Religion</a></li>
-                  <li><a href="#">The Economy</a></li>
+                  <li>
+                    <Link to="#">The Land</Link>
+                  </li>
+                  <li>
+                    <Link to="#">People of Sokoto</Link>
+                  </li>
+                  <li>
+                    <Link to="#">Religion</Link>
+                  </li>
+                  <li>
+                    <Link to="#">The Economy</Link>
+                  </li>
                 </ul>
               </li>
 
               <li className="gov-dropdown">
                 <span>Achievements</span>
                 <ul className="gov-dropdown-menu">
-                  <li><a href="#">Media</a></li>
-                  <li><a href="#">Past Governors</a></li>
-                  <li><a href="#">Past House of Reps</a></li>
+                  <li>
+                    <Link to="#">Media</Link>
+                  </li>
+                  <li>
+                    <Link to="#">Past Governors</Link>
+                  </li>
+                  <li>
+                    <Link to="#">Past House of Reps</Link>
+                  </li>
                 </ul>
               </li>
 
-              <li><Link to="/news">News</Link></li>
-              <li><Link to="/contact">Contact us</Link></li>
-              <li><Link to="/events">Events</Link></li>
+              <li>
+                <Link to="/news">News</Link>
+              </li>
+              <li>
+                <Link to="/contact">Contact us</Link>
+              </li>
+              <li>
+                <Link to="/events">Events</Link>
+              </li>
             </ul>
           </div>
         </nav>
