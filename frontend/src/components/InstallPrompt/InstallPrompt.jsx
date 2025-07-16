@@ -39,7 +39,7 @@ const InstallPrompt = () => {
   return (
     <div className="install-banner top">
       <div className="install-text">
-        <h3>Install Cornerstone Beef App</h3>
+        <h3>Install The Web App</h3>
         <p>Get quick access from your home screen.</p>
       </div>
       <div className="install-actions">

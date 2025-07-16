@@ -76,7 +76,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  z-index: 1000;
+  z-index: 10000;
   animation: slideDown 0.4s ease-out;
   font-family: "Segoe UI", sans-serif;
 }
@@ -100,7 +100,7 @@
 }
 
 .install-button {
-  background-color: #e53935;
+  background-color: #198754;
   color: #fff;
   border: none;
   padding: 8px 14px;
@@ -111,7 +111,7 @@
 }
 
 .install-button:hover {
-  background-color: #d32f2f;
+  background-color: #198754;
 }
 
 .close-button {
