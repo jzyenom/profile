@@ -28,7 +28,7 @@ const Navbar = () => {
               </li>
 
               <li className="gov-dropdown">
-                <span>Projects</span>
+                <Link to='/projects' className="span">Projects</Link>
                 <ul className="gov-dropdown-menu">
                   <li>
                     <Link to="#">Completed</Link>

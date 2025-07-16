@@ -95,7 +95,7 @@
   position: relative;
 }
 
-.gov-dropdown > span {
+.gov-dropdown > .span {
   cursor: pointer;
   display: inline-block;
 }
