@@ -19,7 +19,7 @@
     font-weight: bold;
     margin-bottom: 1.5rem;
     text-align: center;
-    background: linear-gradient(to right, tomato, #ff7f7f);
+    background: linear-gradient(to right, #198754, #198754);
     -webkit-background-clip: text;
     color: transparent;
   }
@@ -32,7 +32,7 @@
   
   .forgot-password {
     font-size: 0.875rem;
-    color: tomato;
+    color: #198754;
     text-decoration: none;
   }
   
@@ -41,7 +41,7 @@
   }
   
   .login-error {
-    color: #ef4444;
+    color: #198754;
     font-size: 0.875rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
@@ -51,7 +51,7 @@
     margin-top: 1.25rem;
     width: 100%;
     padding: 0.75rem 1rem;
-    background: linear-gradient(to right, tomato, #ff7f7f);
+    background: linear-gradient(to right, #dbf0e6, #edeeee);
     color: white;
     font-weight: bold;
     border: none;
@@ -62,11 +62,11 @@
   }
   
   .login-button:hover {
-    background: linear-gradient(to right, #ff6347, tomato);
+    background: linear-gradient(to right, #198754, #198754);
   }
   
   .login-button:focus {
-    outline: 2px solid tomato;
+    outline: 2px solid #198754;
     outline-offset: 2px;
   }
   
@@ -90,7 +90,7 @@
   }
   
   .signup-link {
-    color: tomato;
+    color: #198754;
     text-decoration: none;
     font-weight: 500;
   }

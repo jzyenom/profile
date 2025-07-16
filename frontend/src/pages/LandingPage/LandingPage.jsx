@@ -1,19 +1,28 @@
 import React from "react";
 import "./LandingPage.css";
+import { Link } from "react-router-dom";
 
 const LandingPage = () => {
   return (
     <main>
       {/* Hero Section */}
       <section className="hero-section">
-        <div className="hero-container">
-          <h2>Leading Kebbi to Greatness with Kauran Gwandu</h2>
-          <p className="hero-subtext">A Vision for Progress, Prosperity, and Unity</p>
-          <a href="#events" className="hero-button">
-            Join the Movement
-          </a>
-        </div>
-      </section>
+  <div className="hero-container">
+    <h2>Leading Kebbi to Greatness with Kauran Gwandu</h2>
+    <p className="hero-subtext">
+      A Vision for Progress, Prosperity, and Unity
+    </p>
+    <a href="#events" className="hero-button">
+      Join the Movement
+    </a>
+
+    {/* 🔐 Login Button */}
+<Link to="/login" className="login-button">
+  Login to Dashboard If You are an Admin
+</Link>
+  </div>
+</section>
+
 
       {/* Portfolio Section */}
       <section id="portfolio" className="section section-light">
