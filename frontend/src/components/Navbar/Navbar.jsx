@@ -1,150 +1,79 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./Navbar.css";
-import { assets } from "../../assets/assets";
-import { Link, useLocation } from "react-router-dom";
-import { StoreContext } from "../../context/StoreContext";
-import { useAuthStore } from "../../store/authStore";
-import { ShoppingCart, User2 } from "lucide-react";
-import axios from "axios";
 
-const Navbar = ({ setShowLogin }) => {
-  const { isAuthenticated } = useAuthStore();
-  const location = useLocation();
-  const [menu, setMenu] = useState("home");
-  const { getTotalCartAmount } = useContext(StoreContext);
-  const [menuItems, setMenuItems] = useState([]);
-  const [searchOpen, setSearchOpen] = useState(false);
-  const [searchTerm, setSearchTerm] = useState("");
-  const [restaurants, setRestaurants] = useState([]);
-
-  const API_URL =
-    import.meta.env.MODE === "development"
-      ? "http://localhost:5000/api"
-      : "/api";
-
-  // Load menu items ONLY if user is on cart page
-  useEffect(() => {
-    const isCartPage = location.pathname === "/cart";
-    if (isCartPage && menuItems.length === 0) {
-      const fetchMenuItems = async () => {
-        try {
-          const response = await axios.get(`${API_URL}/menu/get`);
-          setMenuItems(response.data);
-        } catch (err) {
-          console.error("Failed to load menu items:", err);
-        }
-      };
-      fetchMenuItems();
-    }
-  }, [location.pathname, menuItems.length]);
-
-  // Load restaurants ONLY when search is opened
-  useEffect(() => {
-    if (searchOpen && restaurants.length === 0) {
-      const fetchRestaurants = async () => {
-        try {
-          const res = await axios.get(`${API_URL}/restaurant/get`);
-          setRestaurants(res.data);
-        } catch (err) {
-          console.error("Failed to fetch restaurants:", err);
-        }
-      };
-      fetchRestaurants();
-    }
-  }, [searchOpen, restaurants.length]);
-
-  const filteredRestaurants = restaurants.filter((r) =>
-    r.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+const Navbar = () => {
+  const [isNavOpen, setIsNavOpen] = useState(false);
 
   return (
-    <div className="navbar">
-      <Link to="/" className="navbar-logo-link">
-        <img src={assets.logo} className="logo" alt="Logo" />
-      </Link>
+    <header className="gov-navbar">
+      <div className="gov-container">
+        <nav className="gov-nav">
+          <Link className="gov-brand" to="/">
+            Governor Nasir Idris
+          </Link>
 
-      {/* Menu links */}
-      <ul className="navbar-menu">
-        <Link
-          to="/menu"
-          onClick={() => setMenu("home")}
-          className={menu === "home" ? "active" : ""}
-        >
-          Menu
-        </Link>
-        {/* <a
-          href="#explore-menu"
-          onClick={() => setMenu("menu")}
-          className={menu === "menu" ? "active" : ""}
-        >
-          Menu
-        </a> */}
-        <a
-          href="#app-download"
-          onClick={() => setMenu("mobile-app")}
-          className={menu === "mobile-app" ? "active" : ""}
-        >
-          Mobile App
-        </a>
-        <a
-          href="#footer"
-          onClick={() => setMenu("contact-us")}
-          className={menu === "contact-us" ? "active" : ""}
-        >
-          Contact Us
-        </a>
-      </ul>
+          <button
+            className="gov-toggler"
+            onClick={() => setIsNavOpen(!isNavOpen)}
+            aria-label="Toggle navigation"
+          >
+            <span className="gov-toggler-icon"></span>
+          </button>
 
-      {/* Right section: search icon, cart, user */}
-      <div className="navbar-right">
-        {/* <img
-          src={assets.search_icon}
-          alt="search"
-          className="search-toggle"
-          onClick={() => setSearchOpen(!searchOpen)}
-        /> */}
-        <Link to="/cart" className="color-gray navbar-search-icon">
-          <ShoppingCart size={24} />
-          {getTotalCartAmount(menuItems) > 0 && <div className="dot" />}
-        </Link>
-        <Link to={isAuthenticated ? "/dashboard" : "/login"}>
-          <div className="user-icon">
-            <User2 />
+          <div className={`gov-collapse ${isNavOpen ? "open" : ""}`}>
+            <ul className="gov-menu">
+              <li>
+                <a href="#portfolio">Portfolio</a>
+              </li>
+
+              <li className="gov-dropdown">
+                <span>Projects</span>
+                <ul className="gov-dropdown-menu">
+                  <li><a href="#">Completed</a></li>
+                  <li><a href="#">Ongoing</a></li>
+                  <li><a href="#">Proposed</a></li>
+                </ul>
+              </li>
+
+              <li className="gov-dropdown">
+                <span>Government</span>
+                <ul className="gov-dropdown-menu">
+                  <li><a href="#">Executives</a></li>
+                  <li><a href="#">Judiciary</a></li>
+                  <li><a href="#">Legislature</a></li>
+                  <li><a href="#">MDA’s</a></li>
+                  <li><a href="#">Local Governments</a></li>
+                </ul>
+              </li>
+
+              <li className="gov-dropdown">
+                <span>History</span>
+                <ul className="gov-dropdown-menu">
+                  <li><a href="#">The Land</a></li>
+                  <li><a href="#">People of Sokoto</a></li>
+                  <li><a href="#">Religion</a></li>
+                  <li><a href="#">The Economy</a></li>
+                </ul>
+              </li>
+
+              <li className="gov-dropdown">
+                <span>Achievements</span>
+                <ul className="gov-dropdown-menu">
+                  <li><a href="#">Media</a></li>
+                  <li><a href="#">Past Governors</a></li>
+                  <li><a href="#">Past House of Reps</a></li>
+                </ul>
+              </li>
+
+              <li><Link to="/news">News</Link></li>
+              <li><Link to="/contact">Contact us</Link></li>
+              <li><Link to="/events">Events</Link></li>
+            </ul>
           </div>
-        </Link>
+        </nav>
       </div>
-
-      {/* Search Dropdown Field */}
-      {/* {searchOpen && (
-        <div className="search-dropdown">
-          <input
-            type="text"
-            className="navbar-search-input"
-            placeholder="Search restaurants..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
-          {searchTerm && (
-            <div className="search-results-dropdown">
-              {filteredRestaurants.length > 0 ? (
-                filteredRestaurants.map((r) => (
-                  <Link
-                    key={r._id}
-                    to={`/restaurant/${r.owner}`}
-                    className="search-result-item"
-                    onClick={() => setSearchOpen(false)}
-                  >
-                    {r.name}
-                  </Link>
-                ))
-              ) : (
-                <div className="search-result-item">No results found</div>
-              )}
-            </div>
-          )}
-        </div>
-      )} */}
-    </div>
+    </header>
   );
 };
 

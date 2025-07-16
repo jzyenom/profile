@@ -1,217 +1,157 @@
-.navbar {
+.gov-navbar {
+  background-color: #198754;
+  color: white;
+  padding: 10px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.gov-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+.gov-nav {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 10px;
-  background-color: white;
-  margin: auto;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
-  width: 85%;
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15); /* Slightly darker shadow at the bottom */
-  border-radius: 0px 0px 8px 8px;
-}
-
-/* Logo */
-.navbar-logo-link {
-  display: flex; /* Ensure logo link is a flex container */
-  align-items: center;
-}
-
-.navbar .logo {
-  width: 50px;
-}
-
-/* Navbar menu */
-.navbar-menu {
-  display: none; /* Hidden by default on small screens */
-  list-style: none;
-  gap: 20px;
-  color: #49557e;
-  font-size: 18px;
   flex-wrap: wrap;
 }
 
-.navbar-menu a,
-.navbar-menu .active {
+.gov-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
   text-decoration: none;
-  color: #49557e;
-  font-weight: 500;
 }
 
-/* Right section */
-.navbar-right {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  flex-wrap: wrap;
+/* Toggler visible only on mobile */
+.gov-toggler {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: block;
 }
 
-.navbar-search-icon {
+.gov-toggler-icon {
+  width: 24px;
+  height: 2px;
+  background-color: white;
+  display: block;
   position: relative;
 }
 
-.navbar-search-icon .dot {
+.gov-toggler-icon::before,
+.gov-toggler-icon::after {
+  content: "";
+  width: 24px;
+  height: 2px;
+  background-color: white;
   position: absolute;
-  min-width: 10px;
-  min-height: 10px;
-  background-color: tomato;
-  border-radius: 50%;
-  top: -6px;
-  right: -6px;
-}
-
-.color-gray {
-  color: #49557e;
-}
-
-/* User icon */
-.user-icon {
-  color: #49557e;
-  border: 1px solid #49557e;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 6px;
-  width: 40px;
-  height: 40px;
-}
-
-/* Dropdown toggle search */
-.search-toggle {
-  cursor: pointer;
-}
-
-.search-dropdown {
-  width: 100%;
-  margin-top: 10px;
-  position: absolute; /* Position relative to .navbar */
-  top: 100%; /* Below the navbar */
   left: 0;
-  z-index: 1000;
-  background-color: white; /* Ensure it covers content below */
-  padding: 10px 0; /* Add some padding */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
-.navbar-search-input {
-  width: calc(100% - 40px); /* Adjust for padding if needed */
-  max-width: 350px;
-  padding: 6px 12px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  margin: 0 auto; /* Center the input */
-  display: block; /* Make it a block element to center with margin auto */
+.gov-toggler-icon::before {
+  top: -8px;
 }
 
-.search-results-dropdown {
-  position: static; /* Change from absolute to static within dropdown */
-  width: calc(100% - 40px);
-  max-width: 350px;
-  background: white;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  max-height: 200px;
-  overflow-y: auto;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-  margin: 10px auto 0 auto; /* Center results below input */
+.gov-toggler-icon::after {
+  top: 8px;
 }
 
-.search-result-item {
+/* Collapsible nav - mobile */
+.gov-collapse {
+  display: none;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.gov-collapse.open {
   display: block;
-  padding: 8px 10px;
+}
+
+.gov-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.gov-menu > li {
+  padding: 8px 0;
+}
+
+.gov-menu a {
+  color: white;
   text-decoration: none;
-  color: #333;
-  border-bottom: 1px solid #eee;
+  font-size: 1rem;
 }
 
-.search-result-item:last-child {
-  border-bottom: none; /* No border for the last item */
+/* Dropdown */
+.gov-dropdown {
+  position: relative;
 }
 
-.search-result-item:hover {
-  background-color: #f5f5f5;
+.gov-dropdown > span {
+  cursor: pointer;
+  display: inline-block;
 }
 
-/* --- Responsive Layout for Large Devices --- */
-@media (min-width: 751px) {
-  .navbar {
+.gov-dropdown-menu {
+  display: none;
+  background-color: #157347;
+  position: relative;
+  padding: 8px 0;
+  margin-top: 5px;
+}
+
+.gov-dropdown:hover .gov-dropdown-menu {
+  display: block;
+}
+
+.gov-dropdown-menu li {
+  padding: 5px 20px;
+}
+
+.gov-dropdown-menu a {
+  color: white;
+}
+
+/* Desktop styles */
+@media (min-width: 768px) {
+  .gov-toggler {
+    display: none;
+  }
+
+  .gov-collapse {
     display: flex;
-    justify-content: space-between; /* Distribute items */
-    align-items: center;
-    padding: 20px 0;
+    width: auto;
+    margin-top: 0;
   }
 
-  .navbar-logo-link {
-    order: 1; /* Place logo first */
+  .gov-nav {
+    flex-wrap: nowrap;
   }
 
-  .navbar-menu {
-    display: flex; /* Show menu on larger screens */
-    flex-grow: 1; /* Allow menu to take up available space */
-    justify-content: center; /* Center the text items */
-    order: 2; /* Place menu in the middle */
-    margin: 0 20px; /* Add some horizontal margin */
-  }
-
-  .navbar-right {
-    order: 3; /* Place icons to the right */
-    gap: 30px; /* Increase gap between icons for better spacing */
-  }
-
-  .search-dropdown {
-    width: auto; /* Allow dropdown to size based on content */
-    top: auto; /* Remove fixed positioning */
-    left: auto;
-    right: 0; /* Align to the right of the navbar */
-    margin-top: 10px; /* Space below the navbar */
-    position: absolute; /* Re-apply absolute positioning for dropdown */
-    min-width: 350px; /* Give it a minimum width */
-  }
-
-  .navbar-search-input {
-    width: 100%; /* Full width within its container */
-    max-width: none; /* Remove max-width constraint for larger screens */
-  }
-
-  .search-results-dropdown {
-    width: 100%; /* Full width within its container */
-    max-width: none; /* Remove max-width constraint */
-  }
-}
-
-/* --- Mobile Specific Adjustments (if needed) --- */
-@media (max-width: 750px) {
-  .navbar {
-    flex-direction: column; /* Stack items vertically */
-    align-items: flex-start; /* Align items to the start (left) */
-    gap: 10px;
-    padding: 15px 0; /* Adjust padding for mobile */
-  }
-
-  .navbar-logo-link {
-    width: 100%; /* Make logo take full width */
+  .gov-menu {
     display: flex;
-    justify-content: space-between; /* Push logo left, icons right */
+    gap: 20px;
     align-items: center;
   }
 
-  /* Ensure the right icons are still aligned to the right within the top row */
-  .navbar-right {
-    position: absolute; /* Position icons relative to the top row */
-    right: 0;
-    top: 15px; /* Align with padding */
-    gap: 15px; /* Adjust gap for mobile */
+  .gov-menu > li {
+    padding: 0;
   }
 
-  /* Adjust search toggle icon size for better tap target */
-  .search-toggle {
-    width: 24px; /* Example size */
-    height: 24px;
+  .gov-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 180px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 999;
   }
 }

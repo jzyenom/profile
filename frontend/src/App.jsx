@@ -19,34 +19,15 @@ const Homepage = React.lazy(() => import("./pages/Home/Homepage"));
 // import Cart from "./pages/Cart/Cart";
 const Cart = React.lazy(() => import("./pages/Cart/Cart"));
 
-import PlaceOrder from "./pages/PlaceOrder/PlaceOrder";
-import OrderSuccess from "./pages/OrderSuccess/OrderSuccess";
-import CreateRestaurant from "./pages/Restaurant/CreateRestaurant";
-import UpdateRestaurant from "./pages/Restaurant/UpdateRestaurant";
-import RestaurantList from "./pages/Restaurant/RestaurantList";
-// import RestaurantPage from "./pages/Restaurant/RestaurantPage";
-const RestaurantPage = React.lazy(() =>
-  import("./pages/Restaurant/RestaurantPage")
-);
-
-import CreateCategory from "./pages/Category/CreateCategory";
-import UpdateCategory from "./pages/Category/UpdateCategory";
-import CategoryList from "./pages/Category/CategoryList";
 import Sidebar from "./components/Sidebar/Sidebar";
 import CreateMenu from "./components/Menu/CreateMenu";
 import InstallPrompt from "./components/InstallPrompt/InstallPrompt";
 import UsersPage from "./pages/UsersPage/UsersPage";
-import OrdersPage from "./pages/Orders/OrdersPage";
-import { StoreContext } from "./context/StoreContext";
 import MyMenus from "./pages/MyMenus/MyMenus";
 import UpdateMenu from "./pages/UpdateMenu/UpdateMenu";
-import InventoryPage from "./pages/Inventory/InventoryPage";
-import ExpenditureManagementPage from "./pages/ExpenditureManagement/ExpenditureManagementPage";
-import UsagePage from "./pages/Usage/UsagePage";
-import SalesPage from "./pages/Sales/SalesPage";
 import LandingPage from "./pages/LandingPage/LandingPage";
 
-// Protected routes that require authentication
+// Protected routes that require authentication. Redirect unauthenticated users to login page
 const ProtectedRoute = ({ children }) => {
   const { isAuthenticated, user } = useAuthStore();
   if (!isAuthenticated) return <Navigate to="/login" replace />;
@@ -67,11 +48,11 @@ function App() {
   // This category state will be removed soon
   const [category, setCategory] = useState("All");
 
-  const { fetchFoodList, foodList, loading, error } = useContext(StoreContext);
+  // const { fetchFoodList, foodList, loading, error } = useContext(StoreContext);
 
-  useEffect(() => {
-    fetchFoodList(); // ✅ Call it on mount
-  }, []);
+  // useEffect(() => {
+  //   fetchFoodList(); // ✅ Call it on mount
+  // }, []);
 
   useEffect(() => {
     checkAuth();
@@ -93,15 +74,11 @@ function App() {
             <Navbar setShowLogin={setShowLogin} />
           </Suspense>
 
-          <main className="flex-1" style={{marginTop:'2rem'}}>
+          <main className="flex-1" style={{ marginTop: "2rem" }}>
             <Routes>
               <Route path="/" index element={<LandingPage />} />
+
               <Route path="/menu" index element={<Homepage />} />
-              <Route path="/cart" index element={<Cart />} />
-              <Route path="/order" index element={<PlaceOrder />} />
-              <Route path="/order/:id" index element={<PlaceOrder />} />
-              <Route path="/order-success" index element={<OrderSuccess />} />
-              <Route path="/all-orders" index element={<OrdersPage />} />
 
               <Route
                 path="/signup"
@@ -145,80 +122,6 @@ function App() {
                     <DashboardPage />
                   </ProtectedRoute>
                 }
-              />
-              <Route
-                path="/create-restaurant"
-                element={
-                  <ProtectedRoute>
-                    <CreateRestaurant />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/inventory"
-                element={
-                  <ProtectedRoute>
-                    <InventoryPage />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/expenditure"
-                element={
-                  <ProtectedRoute>
-                    <ExpenditureManagementPage />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/usage"
-                element={
-                  <ProtectedRoute>
-                    <UsagePage />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/sales"
-                element={
-                  <ProtectedRoute>
-                    <SalesPage />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/update-restaurant/:updateId"
-                element={
-                  <ProtectedRoute>
-                    <UpdateRestaurant />
-                  </ProtectedRoute>
-                }
-              />
-              <Route path="/restaurants" element={<RestaurantList />} />
-              <Route
-                path="/restaurant/:restaurantId"
-                element={<RestaurantPage category={category} />}
-              />
-
-              <Route
-                path="/create-category"
-                element={
-                  <ProtectedRoute>
-                    <CreateCategory />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/update-category/:updateId"
-                element={
-                  <ProtectedRoute>
-                    <UpdateCategory />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/categories/:categoryId"
-                element={<CategoryList />}
               />
 
               <Route
