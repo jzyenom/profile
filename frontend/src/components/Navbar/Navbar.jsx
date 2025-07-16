@@ -42,7 +42,7 @@ const Navbar = () => {
                 </ul>
               </li>
 
-              <li className="gov-dropdown">
+              {/* <li className="gov-dropdown">
                 <span>Government</span>
                 <ul className="gov-dropdown-menu">
                   <li>
@@ -61,7 +61,7 @@ const Navbar = () => {
                     <Link to="#">Local Governments</Link>
                   </li>
                 </ul>
-              </li>
+              </li> */}
 
               <li className="gov-dropdown">
                 <span>History</span>
