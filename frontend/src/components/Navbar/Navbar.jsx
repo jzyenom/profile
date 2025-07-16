@@ -31,13 +31,13 @@ const Navbar = () => {
                 <Link to='/projects' className="span">Projects</Link>
                 <ul className="gov-dropdown-menu">
                   <li>
-                    <Link to="#">Completed</Link>
+                    <Link to="/projects#completed">Completed</Link>
                   </li>
                   <li>
-                    <Link to="#">Ongoing</Link>
+                    <Link to="/projects#ongoing">Ongoing</Link>
                   </li>
                   <li>
-                    <Link to="#">Proposed</Link>
+                    <Link to="/projects#proposed">Proposed</Link>
                   </li>
                 </ul>
               </li>
