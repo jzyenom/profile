@@ -26,6 +26,7 @@ import UsersPage from "./pages/UsersPage/UsersPage";
 import MyMenus from "./pages/MyMenus/MyMenus";
 import UpdateMenu from "./pages/UpdateMenu/UpdateMenu";
 import LandingPage from "./pages/LandingPage/LandingPage";
+import PortfolioPage from "./pages/PortfolioPage/PortfolioPage";
 
 // Protected routes that require authentication. Redirect unauthenticated users to login page
 const ProtectedRoute = ({ children }) => {
@@ -77,6 +78,7 @@ function App() {
           <main className="flex-1" style={{ marginTop: "2rem" }}>
             <Routes>
               <Route path="/" index element={<LandingPage />} />
+              <Route path="/portfolio" index element={<PortfolioPage />} />
 
               <Route path="/menu" index element={<Homepage />} />
 

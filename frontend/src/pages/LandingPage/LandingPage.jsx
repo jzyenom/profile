@@ -50,7 +50,7 @@ const LandingPage = () => {
               governance and the upliftment of the lives of everyday Kebbi
               citizens.
               </p>
-              <a href="/portfolio.html" className="portfolio-button">
+              <a href="/portfolio" className="portfolio-button">
                 View Portfolio
               </a>
             </div>
