@@ -147,3 +147,61 @@
   text-decoration: none;
   font-weight: 600;
 }
+
+/* ========== Responsive ========== */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-subtext,
+  .portfolio-text,
+  .cta-text {
+    font-size: 1rem;
+  }
+
+  .portfolio-overview {
+    flex-direction: column;
+  }
+
+  .portfolio-image,
+  .portfolio-info {
+    width: 100%;
+  }
+
+  .portfolio-button,
+  .cta-button {
+    width: 100%;
+    text-align: center;
+    padding: 12px;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .card-body {
+    padding: 15px;
+  }
+
+  .card-title {
+    font-size: 1rem;
+  }
+
+  .cta-title {
+    font-size: 1.5rem;
+  }
+
+  .cta-section,
+  .hero-banner {
+    padding: 40px 20px;
+  }
+
+  .card img {
+    height: 180px;
+  }
+
+  .card-grid {
+    gap: 20px;
+  }
+}

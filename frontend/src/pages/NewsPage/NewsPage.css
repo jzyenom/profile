@@ -1,0 +1,101 @@
+/* ========== Hero Section ========== */
+.news-hero {
+  background-color: #198754;
+  color: white;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.news-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.news-subtitle {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* ========== Section Wrapper ========== */
+.news-section {
+  background-color: #f8f9fa;
+  padding: 60px 20px;
+}
+
+.news-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ========== Heading ========== */
+.news-heading {
+  color: #198754;
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 40px;
+  font-size: 1.8rem;
+}
+
+/* ========== News Grid ========== */
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+/* ========== Card ========== */
+.news-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.news-card-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.news-card-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.news-card-title {
+  color: #198754;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.news-card-text {
+  flex-grow: 1;
+  font-size: 0.95rem;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.news-read-more {
+  text-decoration: none;
+  color: #198754;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: 1px solid #198754;
+  padding: 6px 12px;
+  border-radius: 4px;
+  transition: background 0.2s ease;
+  align-self: flex-start;
+}
+
+.news-read-more:hover {
+  background-color: #198754;
+  color: white;
+}
