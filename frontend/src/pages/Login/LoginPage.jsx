@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Mail, Lock, Loader } from "lucide-react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import Input from "../../components/Input/Input";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuthStore } from "../../store/authStore";
 import "./Login.css"; // Import your custom styles
 
 const LoginPage = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -15,6 +17,7 @@ const LoginPage = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     await login(email, password);
+    navigate("/dashboard");
   };
 
   return (

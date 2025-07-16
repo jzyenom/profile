@@ -1,131 +1,141 @@
-/* .dashboard-container {
-  max-width: 700px;
-  margin: 2rem auto;
-  padding: 1rem;
+.dashboard-wrapper {
+  padding: 40px 20px;
+  background-color: #f5f7fa;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.dashboard-title {
-  font-size: 1.8rem;
-  font-weight: bold;
-  margin-bottom: 1.5rem;
+.dashboard-header {
   text-align: center;
+  margin-bottom: 40px;
 }
 
-.no-restaurant {
-  text-align: center;
+.dashboard-header h1 {
+  font-size: 2.5rem;
+  color: #145c3e;
+  margin-bottom: 10px;
 }
 
-.create-button {
-  padding: 0.6rem 1.2rem;
+.dashboard-header p {
+  color: #666;
   font-size: 1rem;
-  background-color: #ff6347;
-  color: white;
-  border: none;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  margin-top: 1rem;
 }
 
-.restaurant-info {
-  border: 1px solid #ccc;
-  padding: 1rem;
-  border-radius: 1rem;
-  background: #fff;
-  margin-top: 1.5rem;
+/* Section Title */
+.section-title {
+  font-size: 1.5rem;
+  color: #198754;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #198754;
+  padding-bottom: 5px;
+}
+
+/* Metrics */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.metric-card {
+  background: white;
+  padding: 20px;
   text-align: center;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s;
 }
 
-.restaurant-title {
-  font-size: 1.25rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
+.metric-card:hover {
+  transform: translateY(-5px);
 }
 
-.restaurant-description {
-  margin-bottom: 1rem;
-  color: #555;
+.metric-icon {
+  font-size: 2rem;
+  color: #198754;
+  margin-bottom: 10px;
 }
 
-.restaurant-image {
-  width: 100%;
-  max-width: 300px;
-  height: auto;
-  border-radius: 0.75rem;
-  object-fit: cover;
-  margin-bottom: 1rem;
-}
-
-.restaurant-actions {
-  display: flex;
-  justify-content: center;
-  gap: 0.75rem;
-}
-
-.small-button {
-  padding: 0.4rem 0.75rem;
-  font-size: 0.875rem;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  border: none;
-  transition: background-color 0.2s ease;
-}
-
-.update-button {
-  background-color: #4caf50;
-  color: white;
-}
-
-.delete-button {
-  background-color: #f44336;
-  color: white;
-}
-
-.logout-button:focus {
-  outline: none;
-}
-
-.logout-button:hover {
-  background-color: #e04b3f;
-  transform: scale(1.05);
-}
-
-.logout-button {
-  background-color: #ff6347;
-  color: white;
-  padding: 0.8rem 1.5rem;
-  font-size: 1.1rem;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  margin-top: 10px;
-  width: 100%;
-  max-width: 200px;
-  margin-left: auto;
-  margin-right: auto;
-} */
-
-/* AdvancedDashboard.css */
-.date-range-filter {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 2rem;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.date-range-filter label {
-  font-weight: 500;
-  color: #333;
+/* Flex Grid */
+.admin-flex-grid {
   display: flex;
   flex-direction: column;
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+@media (min-width: 768px) {
+  .admin-flex-grid {
+    flex-direction: row;
+  }
+}
+
+.card-box {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  flex: 1;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05);
+  border-left: 4px solid #198754;
+}
+
+.card-box h3 {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  color: #1a3c34;
+}
+
+.card-box ul {
+  list-style: none;
+  padding: 0;
+}
+
+.card-box ul li {
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px dashed #ccc;
   font-size: 0.95rem;
 }
 
-.date-range-filter input[type="date"] {
-  padding: 6px 10px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  margin-top: 4px;
-  font-size: 0.95rem;
+/* Quick Actions */
+.quick-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.action-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background-color: #198754;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s;
+}
+
+.action-button:hover {
+  background-color: #145c3e;
+}
+
+/* Inline Icon */
+.icon-inline {
+  margin-right: 8px;
+  color: #198754;
+}
+
+/* Footer */
+.dashboard-footer {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #aaa;
+  padding-top: 30px;
+  border-top: 1px solid #ddd;
 }
