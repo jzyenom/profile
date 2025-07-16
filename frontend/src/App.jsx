@@ -30,7 +30,8 @@ import PortfolioPage from "./pages/PortfolioPage/PortfolioPage";
 import NewsPage from "./pages/NewsPage/NewsPage";
 import EventsPage from "./pages/EventsPage/EventsPage";
 import ContactPage from "./pages/ContactPage/ContactPage";
-import ProjectsPage from './pages/ProjectsPage/ProjectsPage'
+import ProjectsPage from "./pages/ProjectsPage/ProjectsPage";
+import HistoryPage from "./pages/HistoryPage/HistoryPage";
 
 // Protected routes that require authentication. Redirect unauthenticated users to login page
 const ProtectedRoute = ({ children }) => {
@@ -87,6 +88,7 @@ function App() {
               <Route path="/events" index element={<EventsPage />} />
               <Route path="/contact" index element={<ContactPage />} />
               <Route path="/projects" index element={<ProjectsPage />} />
+              <Route path="/history" element={<HistoryPage />} />
 
               <Route path="/menu" index element={<Homepage />} />
 

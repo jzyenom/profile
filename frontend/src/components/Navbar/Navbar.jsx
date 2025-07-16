@@ -28,7 +28,9 @@ const Navbar = () => {
               </li>
 
               <li className="gov-dropdown">
-                <Link to='/projects' className="span">Projects</Link>
+                <Link to="/projects" className="span">
+                  Projects
+                </Link>
                 <ul className="gov-dropdown-menu">
                   <li>
                     <Link to="/projects#completed">Completed</Link>
@@ -64,19 +66,21 @@ const Navbar = () => {
               </li> */}
 
               <li className="gov-dropdown">
-                <span>History</span>
+                <Link to="/history" className="span">
+                  History
+                </Link>
                 <ul className="gov-dropdown-menu">
                   <li>
-                    <Link to="#">The Land</Link>
+                    <Link to="/history#the-land">The Land</Link>
                   </li>
                   <li>
-                    <Link to="#">People of Sokoto</Link>
+                    <Link to="/history#people">People of Sokoto</Link>
                   </li>
                   <li>
-                    <Link to="#">Religion</Link>
+                    <Link to="/history#religion">Religion</Link>
                   </li>
                   <li>
-                    <Link to="#">The Economy</Link>
+                    <Link to="/history#economy">The Economy</Link>
                   </li>
                 </ul>
               </li>
