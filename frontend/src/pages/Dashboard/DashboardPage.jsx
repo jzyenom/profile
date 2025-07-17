@@ -11,14 +11,13 @@ import {
   Lightbulb,
   LogOut,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 import "./Dashboard.css";
 
 // API base URL
 const API_URL =
-  import.meta.env.MODE === "development"
-    ? "http://localhost:5000/api"
-    : "/api";
+  import.meta.env.MODE === "development" ? "http://localhost:5000/api" : "/api";
 
 const Dashboard = () => {
   const handleLogout = async () => {
@@ -106,9 +105,9 @@ const Dashboard = () => {
       <section>
         <h2 className="section-title">Quick Actions</h2>
         <div className="quick-actions">
-          <button className="action-button">
+          <Link to="/create-newsandevents" className="action-button">
             <PlusCircle size={16} /> Add News
-          </button>
+          </Link>
           <button className="action-button">
             <PlusCircle size={16} /> Post Announcement
           </button>
