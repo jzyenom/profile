@@ -10,6 +10,7 @@ import {
   Loader2,
   Lightbulb,
   LogOut,
+  CalendarDays,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -105,17 +106,17 @@ const Dashboard = () => {
       <section>
         <h2 className="section-title">Quick Actions</h2>
         <div className="quick-actions">
-          <Link to="/create-newsandevents" className="action-button">
-            <PlusCircle size={16} /> Add News
+          <Link to="/news" className="action-button">
+            <Newspaper size={16} /> News
+          </Link>
+          <Link to="/events" className="action-button">
+            <CalendarDays size={16} /> Events
           </Link>
           <button className="action-button">
             <PlusCircle size={16} /> Post Announcement
           </button>
           <button className="action-button">
             <Pencil size={16} /> Manage Projects
-          </button>
-          <button className="action-button">
-            <Trash2 size={16} /> Delete Content
           </button>
         </div>
       </section>
