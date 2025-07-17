@@ -128,14 +128,14 @@
 }
 
 .icon {
-  color: #4b5563;
+  color: #fff;
 }
 
 .create-news-btn {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  background-color: #3b82f6;
+  background-color: #01692d;
   color: white;
   padding: 0.6rem 1rem;
   border-radius: 8px;
@@ -144,7 +144,7 @@
 }
 
 .create-news-btn:hover {
-  background-color: #2563eb;
+  background-color: #01692d;
 }
 
 .loader {
@@ -206,4 +206,42 @@
   color: #9ca3af;
   font-size: 1.1rem;
   margin-top: 3rem;
+}
+
+.news-actions {
+  display: flex;
+  /* justify-content: space-between; */
+  margin-top: 10px;
+}
+
+.btn-update,
+.btn-delete {
+  display: flex;
+  margin-right: 10px;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 12px;
+  font-size: 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.btn-update {
+  background-color: #01692d;
+  color: white;
+}
+
+.btn-update:hover {
+  background-color: #0056b3;
+}
+
+.btn-delete {
+  background-color: #dc3545;
+  color: white;
+}
+
+.btn-delete:hover {
+  background-color: #a71d2a;
 }

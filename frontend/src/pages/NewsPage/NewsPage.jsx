@@ -84,9 +84,10 @@
 //
 //
 //
+
 import React, { useEffect, useState } from "react";
-import { LoaderCircle, FilePlus, Newspaper } from "lucide-react";
-import { Link } from "react-router-dom";
+import { LoaderCircle, FilePlus, Newspaper, Trash2, Pencil } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
 import "./NewsPage.css";
 
 const API_URL =
@@ -95,18 +96,37 @@ const API_URL =
 const NewsPage = () => {
   const [news, setNews] = useState([]);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   const fetchNews = async () => {
     try {
       const res = await fetch(`${API_URL}/newsAndEvents/get`);
       const data = await res.json();
-
       const filteredNews = data.filter((item) => item.typeOfData === "news");
       setNews(filteredNews);
     } catch (error) {
       console.error("Error fetching news:", error);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleDelete = async (id) => {
+    const confirm = window.confirm("Are you sure you want to delete this news?");
+    if (!confirm) return;
+
+    try {
+      const res = await fetch(`${API_URL}/newsAndEvents/delete/${id}`, {
+        method: "DELETE",
+      });
+
+      if (res.ok) {
+        setNews(news.filter((item) => item._id !== id));
+      } else {
+        console.error("Failed to delete news");
+      }
+    } catch (error) {
+      console.error("Error deleting news:", error);
     }
   };
 
@@ -140,6 +160,20 @@ const NewsPage = () => {
               <div className="news-content">
                 <h3>{item.title}</h3>
                 <p>{item.description}</p>
+                <div className="news-actions">
+                  <button
+                    className="btn-update"
+                    onClick={() => navigate(`/update-newsandevents/${item._id}`)}
+                  >
+                    <Pencil className="icon" size={16} /> Update
+                  </button>
+                  <button
+                    className="btn-delete"
+                    onClick={() => handleDelete(item._id)}
+                  >
+                    <Trash2 className="icon" size={16} /> Delete
+                  </button>
+                </div>
               </div>
             </div>
           ))}
