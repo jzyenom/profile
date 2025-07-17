@@ -33,6 +33,7 @@ import ContactPage from "./pages/ContactPage/ContactPage";
 import ProjectsPage from "./pages/ProjectsPage/ProjectsPage";
 import HistoryPage from "./pages/HistoryPage/HistoryPage";
 import AchievementsPage from "./pages/AchievementsPage/AchievementsPage";
+import CreateNewsAndEvents from "./pages/NewsAndEvents/CreateNewsAndEvents";
 
 // Protected routes that require authentication. Redirect unauthenticated users to login page
 const ProtectedRoute = ({ children }) => {
@@ -45,7 +46,8 @@ const ProtectedRoute = ({ children }) => {
 // Redirect authenticated users to home page
 const RedirectAuthenticatedUser = ({ children }) => {
   const { isAuthenticated, user } = useAuthStore();
-  if (isAuthenticated && user.isVerified) return <Navigate to="/" replace />;
+  if (isAuthenticated && user.isVerified)
+    return <Navigate to="/dashboard" replace />;
   return children;
 };
 
@@ -92,7 +94,6 @@ function App() {
               <Route path="/history" element={<HistoryPage />} />
               <Route path="/achievements" element={<AchievementsPage />} />
 
-
               <Route path="/menu" index element={<Homepage />} />
 
               <Route
@@ -135,6 +136,14 @@ function App() {
                 element={
                   <ProtectedRoute>
                     <DashboardPage />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/create-newsandevents"
+                element={
+                  <ProtectedRoute>
+                    <CreateNewsAndEvents />
                   </ProtectedRoute>
                 }
               />
