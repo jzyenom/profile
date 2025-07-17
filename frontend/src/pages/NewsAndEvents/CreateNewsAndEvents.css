@@ -1,0 +1,82 @@
+.news-event-form-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #f8f9fa;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.news-event-form h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.news-event-form .form-group {
+  margin-bottom: 1.2rem;
+}
+
+.news-event-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.news-event-form input,
+.news-event-form select,
+.news-event-form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.news-event-form textarea {
+  resize: vertical;
+}
+
+.news-event-form .image-preview {
+  margin-top: 1rem;
+  position: relative;
+}
+
+.news-event-form .image-preview img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.news-event-form .image-preview button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.news-event-form button[type="submit"] {
+  width: 100%;
+  background: #0d6efd;
+  color: white;
+  padding: 0.85rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.news-event-form button[type="submit"]:hover {
+  background: #0951c5;
+}
