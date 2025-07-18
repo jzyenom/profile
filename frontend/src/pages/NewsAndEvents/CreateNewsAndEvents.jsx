@@ -148,6 +148,7 @@ const CreateNewsAndEvents = () => {
           >
             <option value="news">News</option>
             <option value="events">Events</option>
+            <option value="events">Project</option>
           </select>
         </div>
 
