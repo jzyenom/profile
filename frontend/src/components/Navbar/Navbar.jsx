@@ -86,25 +86,30 @@ const Navbar = () => {
               </li>
 
               <li className="gov-dropdown">
-                <Link to="/achievements" className="span">Achievements</Link>
+                <Link to="/achievements" className="span">
+                  Achievements
+                </Link>
                 <ul className="gov-dropdown-menu">
                   <li>
                     <Link to="/achievements#media">Media</Link>
                   </li>
                   <li>
-                    <Link to="/achievements#past-governors">Past Governors</Link>
+                    <Link to="/achievements#past-governors">
+                      Past Governors
+                    </Link>
                   </li>
                   <li>
-                    <Link to="/achievements#house-of-reps">Past House of Reps</Link>
+                    <Link to="/achievements#house-of-reps">
+                      Past House of Reps
+                    </Link>
                   </li>
                 </ul>
               </li>
-
-              <li>
-                <Link to="/news">News</Link>
-              </li>
               <li>
                 <Link to="/contact">Contact us</Link>
+              </li>
+              <li>
+                <Link to="/news">News</Link>
               </li>
               <li>
                 <Link to="/events">Events</Link>
