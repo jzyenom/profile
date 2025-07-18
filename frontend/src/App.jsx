@@ -29,6 +29,7 @@ import LandingPage from "./pages/LandingPage/LandingPage";
 import PortfolioPage from "./pages/PortfolioPage/PortfolioPage";
 import NewsPage from "./pages/NewsPage/NewsPage";
 import EventsPage from "./pages/EventsPage/EventsPage";
+import ProjectPage from "./pages/Project/Project";
 import ContactPage from "./pages/ContactPage/ContactPage";
 import ProjectsPage from "./pages/ProjectsPage/ProjectsPage";
 import HistoryPage from "./pages/HistoryPage/HistoryPage";
@@ -89,6 +90,7 @@ function App() {
               <Route path="/portfolio" index element={<PortfolioPage />} />
               <Route path="/news" index element={<NewsPage />} />
               <Route path="/events" index element={<EventsPage />} />
+              <Route path="/project" index element={<ProjectPage />} />
               <Route path="/contact" index element={<ContactPage />} />
               <Route path="/projects" index element={<ProjectsPage />} />
               <Route path="/history" element={<HistoryPage />} />

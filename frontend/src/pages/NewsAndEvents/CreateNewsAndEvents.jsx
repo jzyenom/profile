@@ -109,7 +109,7 @@ const CreateNewsAndEvents = () => {
 
   return (
     <div className="news-event-form-container">
-      <h2>Create News or Event</h2>
+      <h2>Create News | Event | Project</h2>
       <form onSubmit={handleSubmit} className="news-event-form">
         <div className="form-group">
           <label htmlFor="title">Title</label>
@@ -148,7 +148,7 @@ const CreateNewsAndEvents = () => {
           >
             <option value="news">News</option>
             <option value="events">Events</option>
-            <option value="events">Project</option>
+            <option value="project">Project</option>
           </select>
         </div>
 
