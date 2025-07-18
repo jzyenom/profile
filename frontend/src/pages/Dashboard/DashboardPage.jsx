@@ -115,9 +115,9 @@ const Dashboard = () => {
           <button className="action-button">
             <PlusCircle size={16} /> Post Announcement
           </button>
-          <button className="action-button">
+          <Link to="/project" className="action-button">
             <Pencil size={16} /> Manage Projects
-          </button>
+          </Link>
         </div>
       </section>
 
