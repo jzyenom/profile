@@ -8,10 +8,12 @@ import "./CreateMenu.css";
 const CreateMenu = () => {
   const navigate = useNavigate();
   const { user } = useAuthStore();
-  const API_URL =
-    import.meta.env.MODE === "development"
-      ? "http://localhost:5000/api"
-      : "/api";
+  // const API_URL =
+  //   import.meta.env.MODE === "development"
+  //     ? "http://localhost:5000/api"
+  //     : "/api";
+
+  const API_URL = "https://api-kebbi-government-profile.onrender.com";
 
   const [formData, setFormData] = useState({
     name: "",

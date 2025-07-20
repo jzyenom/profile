@@ -16,10 +16,11 @@ const Cart = () => {
     useContext(StoreContext);
 
   const navigate = useNavigate();
-  const API_URL =
-    import.meta.env.MODE === "development"
-      ? "http://localhost:5000/api"
-      : "/api";
+  // const API_URL =
+  //   import.meta.env.MODE === "development"
+  //     ? "http://localhost:5000/api"
+  //     : "/api";
+  const API_URL = "https://api-kebbi-government-profile.onrender.com";
 
   useEffect(() => {
     console.log("cartItems: ", cartItems);
