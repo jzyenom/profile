@@ -15,8 +15,6 @@
     "@cloudinary/url-gen": "^1.21.0",
     "@google/generative-ai": "^0.24.1",
     "@tailwindcss/vite": "^4.0.0",
-    "@toast-ui/editor": "^3.2.2",
-    "@toast-ui/react-editor": "^3.2.3",
     "advanced-auth-template": "file:..",
     "axios": "^1.7.9",
     "chart.js": "^4.4.9",
