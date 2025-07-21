@@ -20,11 +20,13 @@ const SignupPage = () => {
     e.preventDefault();
 
     try {
-      await signup(email, password, name, role);
+      const res = await signup(email, password, name, role);
+      console.log("Signup response:", res); // Should show user info
+
       // navigate("/verify-email");
       navigate("/login");
-    } catch (error) {
-      console.log(error);
+    } catch (err) {
+      console.log("Signup error:", err);
     }
   };
 
