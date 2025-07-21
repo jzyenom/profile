@@ -21,8 +21,12 @@ export const useAuthStore = create((set) => ({
         name,
         role,
       });
+
+      const user = response.data?.user;
+      if (!user) throw new Error("No user returned from API");
+
       set({
-        user: response.data.user,
+        user,
         isAuthenticated: true,
         isLoading: false,
       });
@@ -42,8 +46,11 @@ export const useAuthStore = create((set) => ({
         email,
         password,
       });
+      const user = response.data?.user;
+      if (!user) throw new Error("No user returned from login");
+
       set({
-        user: response.data.user,
+        user,
         isAuthenticated: true,
         isLoading: false,
         error: null,
@@ -79,8 +86,12 @@ export const useAuthStore = create((set) => ({
       const response = await axios.post(`${API_URL}/verify-email`, {
         code,
       });
+
+      const user = response.data?.user;
+      if (!user) throw new Error("User verification failed");
+
       set({
-        user: response.data.user,
+        user,
         isAuthenticated: true,
         isLoading: false,
       });
@@ -98,8 +109,10 @@ export const useAuthStore = create((set) => ({
     set({ isCheckingAuth: true, error: null });
     try {
       const response = await axios.get(`${API_URL}/check-auth`);
+      const user = response.data?.user;
+
       set({
-        user: response.data.user,
+        user,
         isAuthenticated: true,
         isCheckingAuth: false,
       });
