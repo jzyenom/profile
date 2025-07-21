@@ -1,10 +1,7 @@
 import { create } from "zustand";
 import axios from "axios";
 
-const API_URL = "/api/auth";
-
-// import.meta.env.MODE === "development"
-//   ? "http://localhost:5000/api/auth"
+const API_URL = "https://api-kebbi-government-profile.onrender.com/api/auth";
 
 axios.defaults.withCredentials = true;
 export const useAuthStore = create((set) => ({
