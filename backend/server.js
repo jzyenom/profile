@@ -16,12 +16,30 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 const __dirname = path.resolve();
 
+// Production Cors Setup origin
+const allowedOrigins = ["https://profile-1aiq.onrender.com"];
+
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL || "http://localhost:5173", // allow all origins
-    credentials: true, // allow cookies
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true,
   })
-); // Enable cors for all routes
+);
+
+//Development Cors Setup
+// app.use(
+//   cors({
+//     origin: process.env.FRONTEND_URL || "http://localhost:5173", // allow all origins
+//     credentials: true, // allow cookies
+//   })
+
+// ); // Enable cors for all routes
 
 app.use(express.json()); // Middleware to parse JSON body
 app.use(cookieParser()); //allows us to parse the incoming cookie
