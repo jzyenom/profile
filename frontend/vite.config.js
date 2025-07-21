@@ -10,7 +10,7 @@ export default defineConfig({
     proxy: {
       "/api": {
         // target: "http://localhost:5000",
-        target: "https://api-kebbi-government-profile.onrender.com",
+        target: "https://api-kebbi-government-profile.onrender.com/api",
         secure: false,
       },
     },
