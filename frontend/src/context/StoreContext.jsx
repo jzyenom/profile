@@ -12,13 +12,12 @@ const StoreContextProvider = (props) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  // const API_URL =
-  //   import.meta.env.MODE === "development"
-  //     ? "http://localhost:5000/api"
-  //     : "/api";
+  const API_URL =
+    import.meta.env.MODE === "development"
+      ? "http://localhost:5000/api"
+      : import.meta.env.VITE_API_URL;
 
-  const API_URL = "https://api-kebbi-government-profile.onrender.com";
-
+  // const API_URL = "https://api-kebbi-government-profile.onrender.com";
 
   // Fetch food list manually when requested
   const fetchFoodList = async () => {

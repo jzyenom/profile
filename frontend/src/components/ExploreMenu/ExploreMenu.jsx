@@ -55,7 +55,7 @@ const ExploreMenu = ({ category, setCategory }) => {
   const API_URL =
     import.meta.env.MODE === "development"
       ? "http://localhost:5000/api"
-      : "/api";
+      : import.meta.env.VITE_API_URL;
 
   useEffect(() => {
     const fetchCategories = async () => {

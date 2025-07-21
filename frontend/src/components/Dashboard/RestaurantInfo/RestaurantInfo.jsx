@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./RestaurantInfo.css";
 
 const API_URL =
-  import.meta.env.MODE === "development" ? "http://localhost:5000/api" : "/api";
+  import.meta.env.MODE === "development" ? "http://localhost:5000/api" : import.meta.env.VITE_API_URL;
 
 const RestaurantInfo = ({ user, restaurant, setRestaurant }) => {
   // const [restaurant, setRestaurant] = useState(null);

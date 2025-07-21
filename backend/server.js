@@ -5,7 +5,7 @@ import cookieParser from "cookie-parser";
 import path from "path";
 import colors from "colors";
 import authRoutes from "./routes/auth.route.js";
-import newsAndEvents from './routes/newsAndEvents.router.js'
+import newsAndEvents from "./routes/newsAndEvents.router.js";
 
 // Connect to MongoDB
 import { connectDB } from "./db/connectDB.js";
@@ -33,13 +33,13 @@ app.use("/api/auth", authRoutes);
 app.use("/api/newsAndEvents", newsAndEvents);
 
 // Serve static files from the public folder
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "/frontend/dist")));
+// if (process.env.NODE_ENV === "production") {
+//   app.use(express.static(path.join(__dirname, "/frontend/dist")));
 
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
-  });
-}
+//   app.get("*", (req, res) => {
+//     res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
+//   });
+// }
 
 // //Test
 app.get("/", (req, res) => {
