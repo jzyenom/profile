@@ -36,8 +36,42 @@ export const createPost = async (req, res) => {
 //   }
 // };
 
+// export const getPosts = async (req, res) => {
+//   try {
+//     const posts = await Post.aggregate([
+//       {
+//         $project: {
+//           title: 1,
+//           desc: 1,
+//           status: 1,
+//           createdAt: 1,
+//           image: {
+//             $cond: {
+//               if: { $ifNull: ["$image", false] },
+//               then: {
+//                 $concat: ["http://localhost:5000/public/assets/", "$image"],
+//               },
+//               else: null,
+//             },
+//           },
+//         },
+//       },
+//     ]);
+
+//     if (posts.length) {
+//       res.status(200).json(posts);
+//     } else {
+//       res.status(404).json({ message: "No posts found" });
+//     }
+//   } catch (err) {
+//     res.status(500).json({ error: err.message });
+//   }
+// };
 export const getPosts = async (req, res) => {
   try {
+    // Use environment variable or default to localhost
+    const BASE_URL = process.env.BASE_URL || "http://localhost:5000";
+
     const posts = await Post.aggregate([
       {
         $project: {
@@ -49,7 +83,7 @@ export const getPosts = async (req, res) => {
             $cond: {
               if: { $ifNull: ["$image", false] },
               then: {
-                $concat: ["http://localhost:5000/public/assets/", "$image"],
+                $concat: [`${BASE_URL}/public/assets/`, "$image"],
               },
               else: null,
             },

@@ -14,7 +14,7 @@ export const useAuthStore = create((set) => ({
   isCheckingAuth: true,
   message: null,
 
-  users: [], // ← added state for fetched users
+  users: [],
 
   signup: async ({
     name,
