@@ -2,7 +2,7 @@
 import { create } from "zustand";
 import axios from "axios";
 
-const API_URL = "https://api-kebbi-government-profile.onrender.com/api/auth";
+const API_URL = "https://api-kebbi-government-profile.onrender.com/api/posts";
 
 // const API_URL = "http://localhost:5000/api/posts";
 
