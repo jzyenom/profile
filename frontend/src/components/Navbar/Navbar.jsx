@@ -112,7 +112,10 @@ const Navbar = () => {
                 <Link to="/news">News</Link>
               </li>
               <li>
-                <Link to="/events">Events</Link>
+                <Link to="/users">Members</Link>
+              </li>
+              <li>
+                <Link to="/project">Project</Link>
               </li>
             </ul>
           </div>

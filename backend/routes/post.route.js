@@ -1,62 +1,32 @@
-// import express from 'express';
-// import multer from 'multer';
-// import path from "path";
-
-// import { createPost } from '../controllers/postController.js';
-
-// const router = express.Router();
-
-// const fileStorageEngine = multer.diskStorage({
-//   destination: (req, file, cb) => {
-//     cb(null, "public/assets");
-//   },
-//   filename: (req, file, cb) => {
-//     cb(null, `${Date.now()}_${file.originalname}`);
-//   },
-// });
-// const upload = multer({
-//   storage: fileStorageEngine,
-//   fileFilter: function (req, file, cb) {
-//     const filetypes = /jpeg|jpg|png/;
-//     const extname = filetypes.test(
-//       path.extname(file.originalname).toLowerCase()
-//     );
-//     const mimetype = filetypes.test(file.mimetype);
-
-//     if (mimetype && extname) {
-//       return cb(null, true);
-//     } else {
-//       cb(new Error("Only images are allowed"));
-//     }
-//   },
-// });
-// const upload = multer({ dest: 'uploads/' });
-
-// router.post('/create', upload.single('image'), createPost);
-
-// export default router;
-
+// routes/postRoutes.js
 import express from "express";
 import multer from "multer";
 import path from "path";
-import { createPost, getPosts } from "../controllers/postController.js";
+import {
+  createPost,
+  getPosts,
+  getPost,
+  updatePost,
+  deletePost,
+  getPostsByStatus,
+} from "../controllers/postController.js";
 
 const router = express.Router();
 
-// Configure storage for images
+// Configure Multer storage
 const fileStorageEngine = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "public/assets");
+    cb(null, "public/assets"); // Save in public/assets
   },
   filename: (req, file, cb) => {
     cb(null, `${Date.now()}_${file.originalname}`);
   },
 });
 
-// Only allow images
+// Only allow image types
 const upload = multer({
   storage: fileStorageEngine,
-  fileFilter: function (req, file, cb) {
+  fileFilter: (req, file, cb) => {
     const filetypes = /jpeg|jpg|png/;
     const extname = filetypes.test(
       path.extname(file.originalname).toLowerCase()
@@ -66,13 +36,17 @@ const upload = multer({
     if (mimetype && extname) {
       return cb(null, true);
     } else {
-      cb(new Error("Only images are allowed"));
+      cb(new Error("Only JPEG, JPG, or PNG images are allowed."));
     }
   },
 });
 
-// Use the upload middleware
+// Routes
 router.post("/create", upload.single("image"), createPost);
 router.get("/posts", getPosts);
+router.get("/posts/status", getPostsByStatus); // ?status=pending
+router.get("/post/:id", getPost);
+router.put("/update/:id", upload.single("image"), updatePost);
+router.delete("/delete/:id", deletePost);
 
 export default router;

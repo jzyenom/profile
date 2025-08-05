@@ -159,7 +159,7 @@ export const useAuthStore = create((set) => ({
 
     try {
       const query = new URLSearchParams(filters).toString();
-      const response = await axios.get(`${API_URL}/filter?${query}`);
+      const response = await axios.get(`${API_URL}/users`);
       set({ users: response.data.users, isLoading: false });
     } catch (error) {
       set({

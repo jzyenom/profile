@@ -15,7 +15,7 @@ const router = express.Router();
 
 // The verifyToken protects routes from unauthorized access
 router.get("/check-auth", verifyToken, checkAuth);
-router.get("/users", verifyToken, getUsers);
+router.get("/users", getUsers);
 
 router.post("/signup", signup);
 router.post("/verify-email", verifyEmail);

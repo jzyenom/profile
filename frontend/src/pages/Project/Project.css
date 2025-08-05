@@ -163,3 +163,9 @@
 .btn-delete:hover {
   background-color: #a71d2a;
 }
+
+.status-filter .status-btn.active {
+  background-color: #ff7f0e;
+  color: #fff;
+  font-weight: bold;
+}

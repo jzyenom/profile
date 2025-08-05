@@ -46,7 +46,7 @@ export const usePostStore = create((set) => ({
   getPost: async (id) => {
     set({ isLoading: true, error: null });
     try {
-      const res = await axios.get(`${API_URL}/${id}`);
+      const res = await axios.get(`${API_URL}/post/${id}`);
       set({ post: res.data, isLoading: false });
     } catch (error) {
       set({

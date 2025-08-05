@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const postSchema = new mongoose.Schema({
   title: String,
   description: String,
-  status: { type: String, enum: ["pending", "ongoing", "proposed"] },
+  status: { type: String, enum: ["completed", "ongoing", "proposed"] },
   image: String,
 });
 
