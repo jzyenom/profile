@@ -2,6 +2,7 @@ import bcryptjs from "bcryptjs";
 import crypto from "crypto";
 
 import { User } from "../models/user.model.js";
+import { Contact } from "../models/contact.model.js";
 import { generateTokenAndSetCookie } from "../utils/generateTokenAndSetCookie.js";
 import {
   sendPasswordResetEmail,
@@ -11,11 +12,33 @@ import {
 } from "../mailtrap/emails.js";
 
 export const signup = async (req, res) => {
-  const { name, email, password } = req.body;
+  const {
+    name,
+    email,
+    password,
+    bankName,
+    bankAccountNumber,
+    gender,
+    state,
+    lga,
+    pollingUnit,
+    phone,
+  } = req.body;
 
   try {
     // Validate required fields
-    if (!name || !email || !password) {
+    if (
+      !name ||
+      !email ||
+      !password ||
+      !bankName ||
+      !bankAccountNumber ||
+      !gender ||
+      !state ||
+      !lga ||
+      !pollingUnit ||
+      !phone
+    ) {
       console.log(req.body);
       return res
         .status(400)
@@ -45,8 +68,21 @@ export const signup = async (req, res) => {
       password: hashedPassword,
       verificationToken,
       verificationTokenExpiresAt: Date.now() + 24 * 60 * 60 * 1000, // 24 hours
+      bankName,
+      bankAccountNumber,
+      gender,
+      state,
+      lga,
+      pollingUnit,
+      phone,
     });
 
+    // Add to contacts for messaging
+    await Contact.create({
+      name: user.accountName,
+      phone: user.phone,
+      userId: user._id,
+    });
     await user.save();
     console.log(req.body);
     console.log(hashedPassword);
@@ -231,6 +267,30 @@ export const checkAuth = async (req, res) => {
   } catch (error) {
     console.log("Error in checkAuth - ", error);
     res.status(400).json({ success: false, message: error.message });
+  }
+};
+
+export const getUsers = async (req, res) => {
+  try {
+    const { gender, state, pollingUnit } = req.query;
+
+    const filters = {
+      ...(gender && { gender }),
+      ...(state && { state }),
+      ...(pollingUnit && { pollingUnit }),
+    };
+
+    const users = await User.find(filters).select("-password");
+
+    res.status(200).json({
+      success: true,
+      count: users.length,
+      filtersApplied: filters,
+      users,
+    });
+  } catch (error) {
+    console.error("Error in filterUsers:", error);
+    res.status(500).json({ success: false, message: "Server Error" });
   }
 };
 

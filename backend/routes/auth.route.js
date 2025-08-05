@@ -7,6 +7,7 @@ import {
   forgotPassword,
   resetPassword,
   checkAuth,
+  getUsers,
 } from "../controllers/auth.controller.js";
 import { verifyToken } from "../middleware/verifyToken.js";
 
@@ -14,6 +15,7 @@ const router = express.Router();
 
 // The verifyToken protects routes from unauthorized access
 router.get("/check-auth", verifyToken, checkAuth);
+router.get("/users", verifyToken, getUsers);
 
 router.post("/signup", signup);
 router.post("/verify-email", verifyEmail);

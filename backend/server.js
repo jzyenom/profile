@@ -5,6 +5,8 @@ import cookieParser from "cookie-parser";
 import path from "path";
 import colors from "colors";
 import authRoutes from "./routes/auth.route.js";
+import messageRoutes from "./routes/message.route.js";
+import postRoutes from "./routes/post.route.js";
 import newsAndEvents from "./routes/newsAndEvents.router.js";
 
 // Connect to MongoDB
@@ -43,7 +45,29 @@ app.use(express.urlencoded({ extended: true }));
 
 // Routes
 app.use("/api/auth", authRoutes);
+app.use("/api/message", messageRoutes);
+app.use("/api/posts", postRoutes);
 app.use("/api/newsAndEvents", newsAndEvents);
+
+// Static files
+// app.use(
+//   "/public/assets",
+//   express.static(path.join(__dirname, "public/assets"), {
+//     etag: false, // Disable ETag headers
+//     lastModified: false, // Disable Last-Modified headers
+//     setHeaders: (res, path) => {
+//       res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+//       res.setHeader("Pragma", "no-cache");
+//       res.setHeader("Expires", "0");
+//     },
+//   })
+// );
+
+// Serve static files (e.g., images)
+app.use(
+  "/public/assets",
+  express.static(path.join(__dirname, "public/assets"))
+);
 
 // Serve static files from the public folder
 // if (process.env.NODE_ENV === "production") {

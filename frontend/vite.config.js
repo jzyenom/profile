@@ -9,7 +9,9 @@ export default defineConfig({
     port: 5173,
     proxy: {
       "/api": {
-        target: "https://api-kebbi-government-profile.onrender.com",
+        target: "http://localhost:5000",
+
+        // target: "https://api-kebbi-government-profile.onrender.com",
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, "/api"),
         secure: false,

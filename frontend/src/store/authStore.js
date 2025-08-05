@@ -2,8 +2,10 @@ import { create } from "zustand";
 import axios from "axios";
 
 const API_URL = "https://api-kebbi-government-profile.onrender.com/api/auth";
+// const API_URL = "http://localhost:5000/api/auth";
 
 axios.defaults.withCredentials = true;
+
 export const useAuthStore = create((set) => ({
   user: null,
   isAuthenticated: false,
@@ -12,13 +14,34 @@ export const useAuthStore = create((set) => ({
   isCheckingAuth: true,
   message: null,
 
-  signup: async (email, password, name, role) => {
+  users: [], // ← added state for fetched users
+
+  signup: async ({
+    name,
+    email,
+    password,
+    phone,
+    bankName,
+    bankAccountNumber,
+    gender,
+    state,
+    lga,
+    pollingUnit,
+    role, // include role if needed
+  }) => {
     set({ isLoading: true, error: null });
     try {
       const response = await axios.post(`${API_URL}/signup`, {
+        name,
         email,
         password,
-        name,
+        phone,
+        bankName,
+        bankAccountNumber,
+        gender,
+        state,
+        lga,
+        pollingUnit,
         role,
       });
 
@@ -32,32 +55,7 @@ export const useAuthStore = create((set) => ({
       });
     } catch (error) {
       set({
-        error: error.response.data.message || "Error signing up",
-        isLoading: false,
-      });
-      throw error;
-    }
-  },
-
-  login: async (email, password) => {
-    set({ isLoading: true, error: null });
-    try {
-      const response = await axios.post(`${API_URL}/login`, {
-        email,
-        password,
-      });
-      const user = response.data?.user;
-      if (!user) throw new Error("No user returned from login");
-
-      set({
-        user,
-        isAuthenticated: true,
-        isLoading: false,
-        error: null,
-      });
-    } catch (error) {
-      set({
-        error: error.response?.data?.message || "Error logging in",
+        error: error.response?.data?.message || "Error signing up",
         isLoading: false,
       });
       throw error;
@@ -75,7 +73,7 @@ export const useAuthStore = create((set) => ({
         isLoading: false,
       });
     } catch (error) {
-      set({ error: "Error logging out", isLoading });
+      set({ error: "Error logging out", isLoading: false });
       throw error;
     }
   },
@@ -150,6 +148,23 @@ export const useAuthStore = create((set) => ({
       set({
         isLoading: false,
         error: error.response.data.message || "Error resetting password",
+      });
+      throw error;
+    }
+  },
+
+  // ✅ GET USERS WITH OPTIONAL FILTERS
+  getUsers: async (filters = {}) => {
+    set({ isLoading: true, error: null });
+
+    try {
+      const query = new URLSearchParams(filters).toString();
+      const response = await axios.get(`${API_URL}/filter?${query}`);
+      set({ users: response.data.users, isLoading: false });
+    } catch (error) {
+      set({
+        error: error.response?.data?.message || "Error fetching users",
+        isLoading: false,
       });
       throw error;
     }

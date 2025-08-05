@@ -8,52 +8,36 @@ import {
 } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Project.css";
+import { usePostStore } from "../../store/projectStore";
 
-const API_URL =
-  import.meta.env.MODE === "development" ? "http://localhost:5000/api" : "/api";
+const BASE_URL = "http://localhost:5000/";
+// import.meta.env.MODE === "development" ? "http://localhost:5000/" : "/";
+
+const STATUS_OPTIONS = ["pending", "ongoing", "completed"];
 
 const ProjectPage = () => {
-  const [news, setNews] = useState([]);
-  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
-
-  const fetchNews = async () => {
-    try {
-      const res = await fetch(`${API_URL}/newsAndEvents/get`);
-      const data = await res.json();
-      const filteredNews = data.filter((item) => item.typeOfData === "project");
-      setNews(filteredNews);
-    } catch (error) {
-      console.error("Error fetching news:", error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const handleDelete = async (id) => {
-    const confirm = window.confirm(
-      "Are you sure you want to delete this news?"
-    );
-    if (!confirm) return;
-
-    try {
-      const res = await fetch(`${API_URL}/newsAndEvents/delete/${id}`, {
-        method: "DELETE",
-      });
-
-      if (res.ok) {
-        setNews(news.filter((item) => item._id !== id));
-      } else {
-        console.error("Failed to delete news");
-      }
-    } catch (error) {
-      console.error("Error deleting news:", error);
-    }
-  };
+  const { posts, getPosts, deletePost, isLoading, error } = usePostStore();
+  const [statusFilter, setStatusFilter] = useState("pending");
 
   useEffect(() => {
-    fetchNews();
+    getPosts();
   }, []);
+
+  const handleDelete = async (id) => {
+    if (confirm("Are you sure you want to delete this project?")) {
+      try {
+        await deletePost(id);
+        await getPosts(); // Refresh after delete
+      } catch (err) {
+        console.error("Delete error:", err);
+      }
+    }
+  };
+
+  const filteredPosts = posts.filter(
+    (post) => post.status?.toLowerCase() === statusFilter
+  );
 
   return (
     <div className="news-container">
@@ -64,35 +48,55 @@ const ProjectPage = () => {
         </h1>
         <Link to="/create-newsandevents" className="create-news-btn">
           <FilePlus className="icon" />
-          Create Projects
+          Create Project
         </Link>
       </div>
 
-      {loading ? (
+      {/* Filter Buttons */}
+      <div className="status-filter">
+        {STATUS_OPTIONS.map((status) => (
+          <button
+            key={status}
+            className={`status-btn ${statusFilter === status ? "active" : ""}`}
+            onClick={() => setStatusFilter(status)}
+          >
+            {status.charAt(0).toUpperCase() + status.slice(1)}
+          </button>
+        ))}
+      </div>
+
+      {/* Content */}
+      {isLoading ? (
         <div className="loader">
           <LoaderCircle className="spin" size={40} />
           <p>Loading projects...</p>
         </div>
-      ) : news.length > 0 ? (
+      ) : filteredPosts.length > 0 ? (
         <div className="news-grid">
-          {news.map((item) => (
-            <div className="news-card" key={item._id}>
-              <img src={item.image} alt={item.title} className="news-image" />
+          {filteredPosts.map((post) => (
+            <div className="news-card" key={post._id}>
+              {post.image && (
+                <img
+                  src={`${BASE_URL}${post.image}`}
+                  alt={post.title}
+                  className="news-image"
+                />
+              )}
               <div className="news-content">
-                <h3>{item.title}</h3>
-                <p>{item.description}</p>
+                <h3>{post.title}</h3>
+                <p>{post.description}</p>
                 <div className="news-actions">
                   <button
                     className="btn-update"
                     onClick={() =>
-                      navigate(`/update-newsandevents/${item._id}`)
+                      navigate(`/update-newsandevents/${post._id}`)
                     }
                   >
                     <Pencil className="icon" size={16} /> Update
                   </button>
                   <button
                     className="btn-delete"
-                    onClick={() => handleDelete(item._id)}
+                    onClick={() => handleDelete(post._id)}
                   >
                     <Trash2 className="icon" size={16} /> Delete
                   </button>
@@ -102,8 +106,10 @@ const ProjectPage = () => {
           ))}
         </div>
       ) : (
-        <p className="no-news">No projects available.</p>
+        <p className="no-news">No {statusFilter} projects available.</p>
       )}
+
+      {error && <p className="error-msg">Error: {error}</p>}
     </div>
   );
 };

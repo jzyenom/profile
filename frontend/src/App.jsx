@@ -30,7 +30,10 @@ import PortfolioPage from "./pages/PortfolioPage/PortfolioPage";
 import NewsPage from "./pages/NewsPage/NewsPage";
 import EventsPage from "./pages/EventsPage/EventsPage";
 import ProjectPage from "./pages/Project/Project";
+// import ProjectPage from "./pages/Projects/Project";
 import ContactPage from "./pages/ContactPage/ContactPage";
+import CreatePost from "./pages/CreateProject/Post";
+
 import ProjectsPage from "./pages/ProjectsPage/ProjectsPage";
 import HistoryPage from "./pages/HistoryPage/HistoryPage";
 import AchievementsPage from "./pages/AchievementsPage/AchievementsPage";
@@ -94,6 +97,7 @@ function App() {
               <Route path="/contact" index element={<ContactPage />} />
               <Route path="/projects" index element={<ProjectsPage />} />
               <Route path="/history" element={<HistoryPage />} />
+              <Route path="/post" element={<CreatePost />} />
               <Route path="/achievements" element={<AchievementsPage />} />
 
               <Route path="/menu" index element={<Homepage />} />
