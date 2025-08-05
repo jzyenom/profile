@@ -76,7 +76,7 @@ export const getPosts = async (req, res) => {
       {
         $project: {
           title: 1,
-          desc: 1,
+          description: 1,
           status: 1,
           createdAt: 1,
           image: {

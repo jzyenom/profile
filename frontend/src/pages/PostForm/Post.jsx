@@ -12,8 +12,8 @@ const PostForm = () => {
 
   const [formData, setFormData] = useState({
     title: "",
-    desc: "",
-    status: "pending",
+    description: "",
+    status: "proposed",
   });
   const [image, setImage] = useState(null);
   const [localError, setLocalError] = useState("");
@@ -31,7 +31,7 @@ const PostForm = () => {
       setFormData({
         title: post.title || "",
         desc: post.desc || "",
-        status: post.status || "pending",
+        status: post.status || "proposed",
       });
     }
   }, [post]);
@@ -53,7 +53,7 @@ const PostForm = () => {
 
     const form = new FormData();
     form.append("title", formData.title);
-    form.append("desc", formData.desc);
+    form.append("description", formData.description);
     form.append("status", formData.status);
     if (image) form.append("image", image);
 
@@ -92,8 +92,8 @@ const PostForm = () => {
         <div className="form-group">
           <label>Description:</label>
           <textarea
-            name="desc"
-            value={formData.desc}
+            name="description"
+            value={formData.description}
             onChange={handleChange}
             rows="4"
             required
@@ -110,7 +110,7 @@ const PostForm = () => {
           >
             <option value="completed">Completed</option>
             <option value="ongoing">Ongoing</option>
-            <option value="propose">Proposed</option>
+            <option value="proposed">Proposed</option>
           </select>
         </div>
 
