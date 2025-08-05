@@ -30,7 +30,7 @@ const PostForm = () => {
     if (id && post) {
       setFormData({
         title: post.title || "",
-        desc: post.desc || "",
+        description: post.description || "",
         status: post.status || "proposed",
       });
     }
